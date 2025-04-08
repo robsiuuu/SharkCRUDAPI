@@ -1,8 +1,9 @@
-package com.example.SharkAPI;
+package com.example.SharkAPI.Shark;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,9 +20,11 @@ public class SharkController {
      *
      * @return list of all sharks.
      */
-    @GetMapping
-    public List<Shark> getAllSharks() {
-        return sharkService.getAllSharks();
+    @GetMapping("/all")
+    public Object getAllSharks(Model model) {
+        model.addAttribute("sharkList", sharkService.getAllSharks());
+        model.addAttribute("title", "All Sharks");
+        return "shark-list";
     }
 
     /**

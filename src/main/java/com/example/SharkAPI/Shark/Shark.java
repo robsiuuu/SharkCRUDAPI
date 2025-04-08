@@ -1,4 +1,4 @@
-package com.example.SharkAPI;
+package com.example.SharkAPI.Shark;
 
 import jakarta.persistence.*;
 
@@ -19,7 +19,6 @@ public class Shark {
 
     // Constructors
     public Shark() {
-
     }
 
     public Shark(int sharkId, String name, String description, String species) {
@@ -60,6 +59,16 @@ public class Shark {
 
     public void setSpecies(String species) {
         this.species = species;
+    }
+
+    @Override
+    public String toString() {
+        return "Shark{" +
+                "sharkId=" + sharkId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", species='" + species + '\'' +
+                '}';
     }
 
 }

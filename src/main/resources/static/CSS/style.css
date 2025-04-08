@@ -1,0 +1,79 @@
+body {
+  background-color: lightblue;
+  font-family: Arial,sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: impact;
+  -webkit-text-stroke: 0.2px white;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: groove gray;
+}
+
+.tab a {
+  text-decoration: none;
+  color: black;
+  padding: 12px 20px;
+  font-family: impact;
+  font-size: 18px;
+  border: groove gray;
+  background-color: white;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.tab a:hover {
+  background-color: #ddd;
+}
+
+.clickable-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.clickable-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid black;
+  padding: 10px;
+  width: 220px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+
+.clickable-box:hover {
+  background-color: #ddd;
+  transform: scale(1.05);
+}
+
+.clickable-box img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.clickable-box pre {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0 0 0;
+}

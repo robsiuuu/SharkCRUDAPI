@@ -1,4 +1,4 @@
-package com.example.SharkAPI;
+package com.example.SharkAPI.Shark;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,5 +83,7 @@ public class SharkService {
     public void deleteSharkById(int sharkId) {
         sharkRepository.deleteById(sharkId);
     }
+
+
 
 }
