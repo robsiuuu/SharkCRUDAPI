@@ -1,4 +1,4 @@
-package com.example.SharkAPI;
+package com.example.SharkAPI.Shark;
 
 import jakarta.persistence.*;
 
@@ -12,21 +12,21 @@ public class Shark {
 
     @Column(nullable = false)
     private String name;
-
     private String description;
-
     private String species;
+
+    private String imagePath;
 
     // Constructors
     public Shark() {
-
     }
 
-    public Shark(int sharkId, String name, String description, String species) {
+    public Shark(int sharkId, String name, String description, String species, String imagePath) {
         this.sharkId = sharkId;
         this.name = name;
         this.description = description;
         this.species = species;
+        this.imagePath = imagePath;
     }
 
     // Getters and Setters
@@ -60,6 +60,25 @@ public class Shark {
 
     public void setSpecies(String species) {
         this.species = species;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    @Override
+    public String toString() {
+        return "Shark{" +
+                "sharkId=" + sharkId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", species='" + species + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                '}';
     }
 
 }
