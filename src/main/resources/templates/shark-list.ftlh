@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shark Home</title>
+    <title>Sharks!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/CSS/style.css">
 </head>
 <body>
+
 <header>
     <nav class="blue darken-3">
         <div class="nav-wrapper container">
             <a href="/sharks/all" class="brand-logo">🦈 Sharks!</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/sharks/new"><i class="material-icons left">add</i>New Shark</a></li>
+                <li><a href="/sharks/createForm"><i class="material-icons left">add</i>New Shark</a></li>
             </ul>
         </div>
     </nav>
@@ -23,7 +24,7 @@
 <main class="container">
     <div class="row shark-header">
         <div class="col s12">
-            <h2 class="header center-align blue-text text-darken-3">${title!"All Sharks"}</h2>
+            <h2 class="header center-align text-darken-3">${title!"All Sharks"}</h2>
         </div>
     </div>
 
@@ -77,16 +78,6 @@
         </div>
     </div>
 </main>
-
-<footer class="page-footer blue darken-3">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 center-align">
-                <p class="white-text">Sharks by Robertson Siu</p>
-            </div>
-        </div>
-    </div>
-</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 

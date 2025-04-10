@@ -15,18 +15,15 @@ public class Shark {
     private String description;
     private String species;
 
-    private String imagePath;
-
     // Constructors
     public Shark() {
     }
 
-    public Shark(int sharkId, String name, String description, String species, String imagePath) {
+    public Shark(int sharkId, String name, String description, String species) {
         this.sharkId = sharkId;
         this.name = name;
         this.description = description;
         this.species = species;
-        this.imagePath = imagePath;
     }
 
     // Getters and Setters
@@ -62,14 +59,6 @@ public class Shark {
         this.species = species;
     }
 
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
     @Override
     public String toString() {
         return "Shark{" +
@@ -77,7 +66,6 @@ public class Shark {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", species='" + species + '\'' +
-                ", imagePath='" + imagePath + '\'' +
                 '}';
     }
 
