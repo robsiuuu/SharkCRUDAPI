@@ -9,12 +9,14 @@
     <link rel="stylesheet" type="text/css" href="/static/CSS/style.css">
 </head>
 <body>
+
 <header>
     <nav class="blue darken-3">
         <div class="nav-wrapper container">
             <a href="/sharks/all" class="brand-logo">🦈 Sharks!</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/sharks/all"><i class="material-icons left">list</i>All Sharks</a></li>
+                <li><a href="/sharks/createForm"><i class="material-icons left">add</i>New Shark</a></li>
             </ul>
         </div>
     </nav>
@@ -41,7 +43,7 @@
 
 <div class="row details-header">
     <div class="col s12">
-        <h2 class="header center-align blue-text text-darken-3">${shark.name}</h2>
+        <h2 class="header center-align text-darken-3">${shark.name}</h2>
         <div class="divider"></div>
     </div>
 </div>
@@ -77,10 +79,10 @@
                 </table>
             </div>
             <div class="card-action right-align">
-                <a href="/sharks/${shark.sharkId?c}/edit" class="btn blue darken-3 waves-effect waves-light">
+                <a href="/sharks/update/${shark.sharkId?c}" class="btn blue darken-3 waves-effect waves-light">
                     <i class="material-icons left">edit</i>Edit
                 </a>
-                <form action="/sharks/${shark.sharkId?c}" method="post" style="display: inline;">
+                <form action="/sharks/delete/${shark.sharkId?c}" method="get" style="display: inline;">
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn red waves-effect waves-light">
                         <i class="material-icons left">delete</i>Delete
@@ -91,16 +93,6 @@
     </div>
 </div>
 </main>
-
-<footer class="page-footer blue darken-3">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 center-align">
-                <p class="white-text">Sharks by Robertson Siu</p>
-            </div>
-        </div>
-    </div>
-</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 

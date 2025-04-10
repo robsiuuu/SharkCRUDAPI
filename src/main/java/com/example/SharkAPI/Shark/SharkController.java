@@ -1,12 +1,9 @@
 package com.example.SharkAPI.Shark;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Controller
@@ -41,27 +38,45 @@ public class SharkController {
         return sharkService.getSharksBySpecies(species);
     }
 
-    @GetMapping("/search/{name}")
-    public List<Shark> getSharksByName(@PathVariable String name) {
-        return sharkService.getSharksByName(name);
+    @GetMapping("/search/name")
+    public String searchSharksByName(@RequestParam("search") String name, Model model) {
+        List<Shark> searchResults = sharkService.getSharksByName(name);
+        model.addAttribute("sharkList", searchResults);
+        model.addAttribute("title", "Search Results for: " + name);
+        return "shark-list";
+    }
+
+    @GetMapping("/createForm")
+    public String showCreateForm(Model model) {
+        Shark shark = new Shark();
+        model.addAttribute("shark", shark);
+        model.addAttribute("title", "Create New Shark");
+        return "shark-create";
     }
 
     @PostMapping("/new")
-    public Object addNewShark(@RequestBody Shark shark) {
+    public Object addNewShark(Shark shark) {
         sharkService.addNewShark(shark);
-        return new ResponseEntity<>(sharkService.getAllSharks(), HttpStatus.CREATED);
+        return "redirect:/sharks/all";
     }
 
-    @PutMapping("/{id}")
-    public Object updateShark(@PathVariable("id") int sharkId, @RequestBody Shark shark) {
+    @GetMapping("/update/{id}")
+    public String showUpdateForm(@PathVariable("id") int sharkId, Model model) {
+        model.addAttribute("shark", sharkService.getSharkById(sharkId));
+        model.addAttribute("title", "Update Shark");
+        return "shark-update";
+    }
+
+    @PostMapping("/update/{id}")
+    public Object updateShark(@PathVariable("id") int sharkId, Shark shark) {
         sharkService.updateShark(sharkId, shark);
-        return new ResponseEntity<>(sharkService.getSharkById(sharkId), HttpStatus.CREATED);
+        return "redirect:/sharks/" + sharkId;
     }
 
-    @DeleteMapping("/{id}")
+    @GetMapping("/delete/{id}")
     public Object deleteSharkById(@PathVariable("id") int sharkId) {
         sharkService.deleteSharkById(sharkId);
-        return new ResponseEntity<>(sharkService.getAllSharks(), HttpStatus.OK);
+        return "redirect:/sharks/all";
     }
 
 }

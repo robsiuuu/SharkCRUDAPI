@@ -21,6 +21,7 @@ public interface SharkRepository extends JpaRepository<Shark, Integer> {
 
     @Query(value = "SELECT MAX(s.sharkId) FROM Shark s WHERE s.sharkId < :currentId")
     Integer findPreviousId(@Param("currentId") int currentId);
+
 }
 
 

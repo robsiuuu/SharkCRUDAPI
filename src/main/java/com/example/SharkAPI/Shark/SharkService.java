@@ -40,19 +40,19 @@ public class SharkService {
     }
 
     public void updateShark(int sharkId, Shark shark) {
-        Shark existing = getSharkById(sharkId);
-        existing.setName(shark.getName());
-        existing.setDescription(shark.getDescription());
-        existing.setSpecies(shark.getSpecies());
-
-        // The save method merges by default.
-        sharkRepository.save(existing);
+        if (getSharkById(sharkId) != null){
+            Shark existing = getSharkById(sharkId);
+            existing.setName(shark.getName());
+            existing.setDescription(shark.getDescription());
+            existing.setSpecies(shark.getSpecies());
+            sharkRepository.save(existing);
+        } else {
+            System.out.println("ID does not exist!");
+        }
     }
 
     public void deleteSharkById(int sharkId) {
         sharkRepository.deleteById(sharkId);
     }
-
-
 
 }
